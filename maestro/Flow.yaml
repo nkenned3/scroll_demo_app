@@ -1,7 +1,14 @@
-url: http://localhost:52846/
+url: https://docs.maestro.dev/
 ---
 - launchApp
+- openLink: "https://docs.maestro.dev/"
 - "scroll"
+- scrollUntilVisible:
+    element: "Was this helpful?"
+    direction: "DOWN"
+## scroll on docs.maestro.dev worked well    
+- openLink: "http://localhost:52846/"
+- "scroll" # does nothing
 - tapOn: "The Congress shall have Power To lay and collect Taxes, Duties, Imposts\
     \ and Excises,\_to pay the Debts and provide for the common Defence and general\
     \ Welfare of the United States;\_but all Duties, Imposts and Excises shall be\
@@ -9,7 +16,8 @@ url: http://localhost:52846/
 - assertVisible:
     id: "flt-semantic-node-37"
 - tapOn: "Close"
-- "scroll"
-- scrollUntilVisible:
+- "scroll" # does nothing
+- scrollUntilVisible: # always fails
     element: "To provide and maintain a Navy;"
     direction: "DOWN"
+
