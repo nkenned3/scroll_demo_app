@@ -1,6 +1,6 @@
-appId: null
+url: http://localhost:52846/
 ---
-- openLink: "http://localhost:52846/"
+- launchApp
 - "scroll"
 - tapOn: "The Congress shall have Power To lay and collect Taxes, Duties, Imposts\
     \ and Excises,\_to pay the Debts and provide for the common Defence and general\
