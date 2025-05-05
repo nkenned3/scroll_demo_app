@@ -1,0 +1,15 @@
+appId: null
+---
+- openLink: "http://localhost:52846/"
+- "scroll"
+- tapOn: "The Congress shall have Power To lay and collect Taxes, Duties, Imposts\
+    \ and Excises,\_to pay the Debts and provide for the common Defence and general\
+    \ Welfare of the United States;\_but all Duties, Imposts and Excises shall be\
+    \ uniform throughout the United States;"
+- assertVisible:
+    id: "flt-semantic-node-37"
+- tapOn: "Close"
+- "scroll"
+- scrollUntilVisible:
+    element: "To provide and maintain a Navy;"
+    direction: "DOWN"
