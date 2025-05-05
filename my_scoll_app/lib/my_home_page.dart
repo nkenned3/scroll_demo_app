@@ -1,11 +1,11 @@
-import 'dart:js_interop' as js;
+//import 'dart:js_interop' as js;
 import 'package:flutter/material.dart';
 
 /// this was a desperate attempt to get the js interop working
 /// with this exposed function, you can call it from js.
 /// example: console window of Chrome: window.scroll(200, 0, 'smooth')
-@js.JS('scroll')
-external set _jsScroll(js.JSFunction f);
+//@js.JS('scroll')
+//external set _jsScroll(js.JSFunction f);
 
 class MyScrollPage extends StatefulWidget {
   const MyScrollPage({super.key, required this.title});
@@ -19,36 +19,36 @@ class MyScrollPage extends StatefulWidget {
 class _MyScrollPageState extends State<MyScrollPage> {
   late final ScrollController _scrollController;
 
-  void _scrollTo(int top, int left, [String? behavior]) {
-    if (_scrollController.hasClients) {
-      if (behavior == 'smooth') {
-        _scrollController.animateTo(
-          top.toDouble(),
-          duration: const Duration(milliseconds: 500),
-          curve: Curves.ease,
-        );
-      } else {
-        _scrollController.jumpTo(top.toDouble());
-      }
-    }
-  }
+  // void _scrollTo(int top, int left, [String? behavior]) {
+  //   if (_scrollController.hasClients) {
+  //     if (behavior == 'smooth') {
+  //       _scrollController.animateTo(
+  //         top.toDouble(),
+  //         duration: const Duration(milliseconds: 500),
+  //         curve: Curves.ease,
+  //       );
+  //     } else {
+  //       _scrollController.jumpTo(top.toDouble());
+  //     }
+  //   }
+  // }
 
-  void exposeScrollToJs() {
-    _jsScroll =
-        (js.JSAny top, js.JSAny left, [js.JSAny? behavior]) {
-          // Convert JSAny to Dart types using asDartInt and asDartString
-          final int dartTop = top as int;
-          // left is ignored for vertical scroll, but you could use it for horizontal
-          final String? dartBehavior = behavior as String;
-          _scrollTo(dartTop, 0, dartBehavior);
-        }.toJS;
-  }
+  // void exposeScrollToJs() {
+  //   _jsScroll =
+  //       (js.JSAny top, js.JSAny left, [js.JSAny? behavior]) {
+  //         // Convert JSAny to Dart types using asDartInt and asDartString
+  //         final int dartTop = top as int;
+  //         // left is ignored for vertical scroll, but you could use it for horizontal
+  //         final String? dartBehavior = behavior as String;
+  //         _scrollTo(dartTop, 0, dartBehavior);
+  //       }.toJS;
+  // }
 
   @override
   void initState() {
     super.initState();
     _scrollController = ScrollController();
-    exposeScrollToJs();
+    //exposeScrollToJs();
   }
 
   @override
